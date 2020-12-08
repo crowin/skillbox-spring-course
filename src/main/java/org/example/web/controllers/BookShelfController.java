@@ -19,7 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -87,7 +86,7 @@ public class BookShelfController {
 
     @GetMapping("/filter")
     public String filterBook(Model model, @RequestParam("author") String author, @RequestParam("title") String title,
-                             @RequestParam("size") @Min(value = 0) Integer size) {
+                             @RequestParam("size") Integer size) {
         ShelfFilter filter = new ShelfFilter();
         filter.setTitle(title);
         filter.setAuthor(author);
